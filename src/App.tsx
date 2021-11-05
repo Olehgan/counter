@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {Screen} from "./copmonent/Scrin";
+import {Buttons} from "./copmonent/Buttons";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+    let maxValue = 5;
+    let startValue = 0;
+    let [count, setCount] = useState(0)
+
+
+    const onIncCount = () => {
+        setCount(count + 1);
+    }
+
+    const onResetCount = () => {
+        setCount(startValue)
+    }
+
+
+    return (
+        <div>
+            <div className='counter'>
+                <Screen
+                    maxValue={maxValue}
+                    value={count}
+                    startValue={startValue}/>
+
+                <Buttons onIncCount={onIncCount}
+                         onResetCount={onResetCount}
+                         value={count}
+                         maxValue={maxValue}
+                         startValue={startValue}
+                /></div>
+
+
+        </div>
+    )
 }
 
 export default App;

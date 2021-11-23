@@ -1,41 +1,95 @@
+.common-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    padding: 200px;
+
+}
+
 .counter {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     background: lightslategrey;
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     border: aquamarine solid 3px;
-    text-align: center;
-    margin: 200px;
-    padding: 10px;
     border-radius: 20px;
 }
 
-.two-block {
-    margin: 200px;
+.tablet-block {
+    display: flex;
+    width: 200px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
 }
 
-
 .tablet {
-    font-size: xx-large;
-    width: 145px;
-    height: 50px;
-    margin-block: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: xxx-large;
+    width: 184px;
+    height: 66px;
     border-radius: 20px;
     border: aqua solid 2px;
     background: aquamarine;
 }
 
 
-.block {
-    border: solid 1px aqua;
+.settings-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: aquamarine solid 3px;
     border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    background-color: lightslategrey;
+
+
+}
+
+
+.inputs-block {
+    display: flex;
+    flex-direction: column;
+    border: cyan solid 3px;
+    height: 100px;
+    width: 190px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: lightslategrey;
+    border-radius: 20px;
+}
+
+/*.two-block {*/
+/*    margin: 200px;*/
+/*}*/
+
+
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 181px;
+    height: 27px;
+    border-radius: 29px;
     padding: 2px;
     background: lightslategrey;
+    border: 1px solid aquamarine;
 }
 
 .buttons-block {
+    display: flex;
     border-radius: 20px;
     margin-left: 25px;
-    display: flex;
 
 
 }
@@ -63,7 +117,6 @@
 
 .text-red {
     text-align: center;
-
     color: red;
 }
 
@@ -75,31 +128,41 @@
 
 .text {
     color: black;
+    text-align: center;
 }
 
 
-.inputs-block {
-    border: black solid 3px;
-    height: 110px;
-    width: 200px;
-}
-
-.settings-block {
-    display: flex;
-    border: aquamarine solid 3px;
-    width: 250px;
-    height: 250px;
-
+.inputs {
+    margin: 1px;
+    text-align: center;
+    border-color: aquamarine;;
+    background-color: aquamarine;;
+    width: 80px;
 }
 
 .inputs-red {
     background-color: red;
-    width: 100px;
+    width: 80px;
 }
 
-.inputs {
-    text-align: center;
-    background-color: azure;
-    width: 80px;
+.maxValue {
+    margin: 5px;
+    color: aquamarine;
 
+}
+
+.startValue {
+    margin: 4px;
+    color: aquamarine;
+}
+
+
+.set-button {
+    border-radius: 20px;
+    display: flex;
+    height: 30px;
+    border: aquamarine solid 1px;
+    width: 190px;
+    justify-content: center;
+    align-items: center;
 }

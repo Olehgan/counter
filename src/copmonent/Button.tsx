@@ -9,9 +9,9 @@ type ButtonTypeProps = {
 export const Button = (props: ButtonTypeProps) => {
 
     return (
-        <div className={'buttons'}>
+        <div>
             <button
-                className={'button'}
+                className='common-button'
                 onClick={props.onClick}
                 disabled={props.isDisabled}>
                 {props.title}

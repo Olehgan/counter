@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Screen} from "./copmonent/Scrin";
 import {Buttons} from "./copmonent/Buttons";
@@ -11,25 +11,27 @@ const App = () => {
     let [count, setCount] = useState(0)
     let [maxValue, setMaxValue] = useState(5)
     let [startValue, setStartValue] = useState(0)
-    // let [error, setError] = useState("")
+    let [error, setError] = useState('input value pres button')
+    let [data, setData] = useState(true)
+
+
     let errorsValue = maxValue < 0 || maxValue <= startValue || startValue < 0
-
-
-    useEffect(() => {
-        let countAsString = localStorage.getItem('maxValue')
-        if (countAsString) {
-            let newCount = JSON.parse(countAsString)
-            setMaxValue(newCount)
-        }
-    }, []);
-
-    useEffect(() => {
-        let countAsString = localStorage.getItem('startValue')
-        if (countAsString) {
-            let newCount = JSON.parse(countAsString)
-            setStartValue(newCount)
-        }
-    }, [])
+    //
+    // useEffect(() => {
+    //     let countAsString = localStorage.getItem('maxValue')
+    //     if (countAsString) {
+    //         let newCount = JSON.parse(countAsString)
+    //         setMaxValue(newCount)
+    //     }
+    // }, []);
+    //
+    // useEffect(() => {
+    //     let countAsString = localStorage.getItem('startValue')
+    //     if (countAsString) {
+    //         let newCount = JSON.parse(countAsString)
+    //         setStartValue(newCount)
+    //     }
+    // }, [])
 
 
     const onIncCount = () => {
@@ -48,18 +50,24 @@ const App = () => {
 
     return (
         <div className={'common-block'}>
-            <div className='counter'>
+            <div className={'counter'}>
                 <Screen
-                    errorsValue={errorsValue}
-                    maxValue={maxValue}
                     value={count}
-                    startValue={startValue}/>
+                    maxValue={maxValue}
+                    startValue={startValue}
+                    errorsValue={errorsValue}
+                    error={error}
+                    data={data}
+
+                />
 
                 <Buttons onIncCount={onIncCount}
                          onResetCount={onResetCount}
                          value={count}
                          maxValue={maxValue}
                          startValue={startValue}
+                         errorsValue={errorsValue}
+
                 /></div>
 
             <div className={'settings-block'}>
@@ -69,6 +77,8 @@ const App = () => {
                        setMaxValue={setMaxValue}
                        setStartValue={setStartValue}
                        errorsValue={errorsValue}
+                       error={error}
+                       setError={setError}
 
                 />
 
@@ -76,6 +86,7 @@ const App = () => {
                            maxValue={maxValue}
                            startValue={startValue}
                            errorsValue={errorsValue}
+                           setData={setData}
 
                 />
             </div>

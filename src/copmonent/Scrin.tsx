@@ -15,20 +15,26 @@ export const Screen = (props: ScreenType) => {
         <div className='tablet-block'>
             {props.data ?
                 < div className={'tablet'}>
-                <span className={props.value === props.maxValue || props.errorsValue ? 'text-red' : 'text'
-                }>
+                <span className={props.errorsValue ? 'text-error' : 'start-text'}
+                >
                     {props.error}
                 </span>
                 </div>
-
                 :
                 < div className={'tablet'}>
-                <span className={props.value === props.maxValue || props.errorsValue ? 'text-red' : 'text'
-                }>
-                    {props.value}
+                <span
+                    className={props.value === props.maxValue ? 'error-number' : 'text' && props.errorsValue ? 'text-error' : 'text'
+                    }>
+                   {props.errorsValue ? props.error : props.value}
                 </span>
                 </div>
             }
         </div>
     )
 }
+// < div className={'tablet'}>
+//                 <span className={props.value === props.maxValue || props.errorsValue ? 'text-red' : 'text'
+//                 }>
+//                    {props.value ? props.value: props.error }
+//                 </span>
+// </div>

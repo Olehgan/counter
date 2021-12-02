@@ -4,6 +4,7 @@ type ButtonTypeProps = {
     onClick: () => void
     isDisabled:boolean
     title:string
+
 }
 
 export const Button = (props: ButtonTypeProps) => {

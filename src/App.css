@@ -119,15 +119,21 @@
 
 .text-error {
     text-align: center;
-    font-size: large;
+    font-size: x-large;
     color: red;
 }
 
 .text {
     color: black;
     text-align: center;
+
 }
 
+.start-text {
+    color: black;
+    text-align: center;
+    font-size: x-large;
+}
 
 .inputs {
     margin: 1px;
@@ -140,6 +146,7 @@
 .inputs-red {
     background-color: red;
     width: 80px;
+    text-align: center;
 }
 
 .maxValue {
@@ -162,4 +169,16 @@
     width: 190px;
     justify-content: center;
     align-items: center;
+}
+
+.f {
+    text-align: center;
+    color: red;
+    font-size: small;
+
+}
+.error-number{
+    text-align: center;
+    font-size: xxx-large;
+    color: red;
 }

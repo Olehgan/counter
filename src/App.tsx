@@ -11,9 +11,9 @@ const App = () => {
     let [count, setCount] = useState(0)
     let [maxValue, setMaxValue] = useState(5)
     let [startValue, setStartValue] = useState(0)
-    let [error, setError] = useState('input value pres button')
+    let [errorValue, setErrorValue] = useState('Enter value press button set')
     let [data, setData] = useState(true)
-
+    let [disabled, setDisabled]= useState(false)
 
     let errorsValue = maxValue < 0 || maxValue <= startValue || startValue < 0
     //
@@ -56,7 +56,7 @@ const App = () => {
                     maxValue={maxValue}
                     startValue={startValue}
                     errorsValue={errorsValue}
-                    error={error}
+                    error={errorValue}
                     data={data}
 
                 />
@@ -67,6 +67,9 @@ const App = () => {
                          maxValue={maxValue}
                          startValue={startValue}
                          errorsValue={errorsValue}
+                         setDisable={setDisabled}
+                         disable={disabled}
+
 
                 /></div>
 
@@ -77,8 +80,8 @@ const App = () => {
                        setMaxValue={setMaxValue}
                        setStartValue={setStartValue}
                        errorsValue={errorsValue}
-                       error={error}
-                       setError={setError}
+                       error={errorValue}
+                       setError={setErrorValue}
 
                 />
 
@@ -87,6 +90,7 @@ const App = () => {
                            startValue={startValue}
                            errorsValue={errorsValue}
                            setData={setData}
+                           disable={disabled}
 
                 />
             </div>

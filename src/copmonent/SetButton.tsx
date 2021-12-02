@@ -7,6 +7,7 @@ type setButton = {
     startValue: number
     errorsValue:boolean
     setData:(data:boolean)=>void
+    disable:boolean
 }
 
 
@@ -14,11 +15,13 @@ export const SetButton = (props: setButton) => {
     let onSetNumberHandler = () => {
         props.setData(false)
         props.setNumberHandler()
+
+
     }
     return (
         <div className='set-button'>
             <Button  onClick={onSetNumberHandler}
-                    isDisabled={props.errorsValue}
+                    isDisabled={props.disable}
                     title={'Set'}
             />
         </div>

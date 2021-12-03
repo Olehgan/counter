@@ -13,9 +13,11 @@ const App = () => {
     let [startValue, setStartValue] = useState(0)
     let [errorValue, setErrorValue] = useState('Enter value press button set')
     let [data, setData] = useState(true)
-    let [disabled, setDisabled]= useState(false)
+    let [incDisabled, setIncDisabled] = useState(true)
+    let [resDisabled, setResDisabled] = useState(true)
+    let [disabled, setDisabled] = useState(false)
 
-    let errorsValue = maxValue < 0 || maxValue <= startValue || startValue < 0
+    let errorsValue = maxValue <= 0 || maxValue < startValue || startValue < 0||  maxValue === startValue
     //
     // useEffect(() => {
     //     let countAsString = localStorage.getItem('maxValue')
@@ -41,9 +43,11 @@ const App = () => {
     const onResetCount = () => {
         setCount(startValue)
     }
+
     const setNumberHandler = () => {
         localStorage.setItem('maxValue', JSON.stringify(maxValue))
         localStorage.setItem('startValue', JSON.stringify(startValue))
+
 
     }
 
@@ -55,20 +59,29 @@ const App = () => {
                     value={count}
                     maxValue={maxValue}
                     startValue={startValue}
+
                     errorsValue={errorsValue}
                     error={errorValue}
+
                     data={data}
 
                 />
 
                 <Buttons onIncCount={onIncCount}
                          onResetCount={onResetCount}
+
                          value={count}
                          maxValue={maxValue}
                          startValue={startValue}
+
                          errorsValue={errorsValue}
-                         setDisable={setDisabled}
-                         disable={disabled}
+
+                         incDisabled={incDisabled}
+                         setIncDisabled={setIncDisabled}
+                         setError={setErrorValue}
+                         resDisabled={resDisabled}
+                         setResDisabled={setResDisabled}
+
 
 
                 /></div>
@@ -82,6 +95,9 @@ const App = () => {
                        errorsValue={errorsValue}
                        error={errorValue}
                        setError={setErrorValue}
+                       setDisabled={setDisabled}
+                       setResDisabled={setResDisabled}
+                       setIncDisabled={setIncDisabled}
 
                 />
 
@@ -91,6 +107,9 @@ const App = () => {
                            errorsValue={errorsValue}
                            setData={setData}
                            disable={disabled}
+                           setDisabled={setDisabled}
+                           setIncDisabled={setIncDisabled}
+                           setResDisabled={setResDisabled}
 
                 />
             </div>

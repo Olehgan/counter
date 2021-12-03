@@ -17,7 +17,7 @@ export const Screen = (props: ScreenType) => {
                 < div className={'tablet'}>
                 <span className={props.errorsValue ? 'text-error' : 'start-text'}
                 >
-                    {props.error}
+                    {props.errorsValue ? props.error: props.error}
                 </span>
                 </div>
                 :

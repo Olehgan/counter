@@ -8,6 +8,10 @@ type InputTypeProps = {
     errorsValue: boolean
     setError: (error: string) => void
     error: string
+    setDisabled: (disable: boolean) => void
+    setResDisabled: (resDisabled: boolean) => void
+    setIncDisabled: (incDisabled: boolean) => void
+
 }
 
 export const Input = (props: InputTypeProps) => {
@@ -15,6 +19,14 @@ export const Input = (props: InputTypeProps) => {
     let onChangeMaxNumber = (e: ChangeEvent<HTMLInputElement>) => {
         const maxInput = +e.currentTarget.value
         props.setMaxValue(maxInput)
+        if (maxInput <= 0 || maxInput <= props.startValue) {
+            debugger
+            props.setDisabled(true)
+            props.setResDisabled(true)
+            props.setIncDisabled(true)
+        } else {
+            props.setDisabled(false)
+        }
         if (maxInput <= 0 || maxInput <= props.startValue) {
             props.setError('Error value maxValue')
         } else {
@@ -26,6 +38,14 @@ export const Input = (props: InputTypeProps) => {
         const minInput = +e.currentTarget.value
         props.setStartValue(minInput)
         if (minInput < 0 || minInput >= props.maxValue) {
+            debugger
+            props.setDisabled(true)
+            props.setResDisabled(true)
+            props.setIncDisabled(true)
+        } else {
+            props.setDisabled(false)
+        }
+        if (minInput < 0 || minInput >= props.maxValue) {
             props.setError('Error value startValue')
         } else {
             props.setError('Enter value press button set')
@@ -35,7 +55,7 @@ export const Input = (props: InputTypeProps) => {
         <div className={'inputs-block'}>
             <div className={'inputs-max'}>
                 <label className={'maxValue'}> maxValue : </label>
-                <input className={props.maxValue < 0 || props.maxValue <= props.startValue ? 'inputs-red' : 'inputs'}
+                <input className={props.maxValue <= 0 || props.maxValue <= props.startValue ? 'inputs-red' : 'inputs'}
                        type="number"
                        value={props.maxValue} onChange={onChangeMaxNumber}/>
             </div>
